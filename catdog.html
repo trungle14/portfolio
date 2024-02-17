@@ -117,185 +117,415 @@
 </body>
 </html>
 
-          <h2>1. Overview</h2>
-    <h3>1.1. Description of Project</h3>
-    <p>This is a prediction problem project for Walmart (A Top Retail Group) Sales dataset from Kaggle for the unit sales forecasting. Advanced and comprehensive analytics skills, including Exploratory Data Analysis and Machine Learning Data Prediction Analysis techniques will be used in this case for generating data-driven business insights.</p>
-    <h3>1.2. Business Context</h3>
-    <p>In the dynamic landscape of the retail industry, the ability to predict sales accurately is paramount for sustaining and enhancing business operations. For a retail giant like Walmart, whose vast operations span a multitude of products, locations, and customer segments, the challenge of forecasting sales becomes even more intricate.</p>
-    <h3>Challenges and Risks:</h3>
-    <p>Walmart confronts the formidable task of maximizing decision-making efficiency amid a sea of data. The stakes are high, as inaccurate predictions can lead to substantial losses. Traditional prediction methods, once reliable, now struggle to cope with the complexities of modern retail dynamics. To avoid costly mistakes and enhance forecasting accuracy, there is a pressing need for the integration of cutting-edge data science techniques.</p>
-    <h3>Business Imperatives:</h3>
-    <p>Precise sales predictions stand as the linchpin in Walmart's strategy to navigate both realized and potential revenue opportunities. Efficient inventory management, customer satisfaction, strategic promotions, and a competitive edge hinge on the ability to foresee market trends accurately.</p>
-    <h3>Benefits of Sales Prediction:</h3>
-    <ul>
-        <li>Efficient Inventory Management: Anticipate demand trends, reducing stockouts and overstocks.</li>
-        <li>Customer Satisfaction: Ensure product availability, meeting customer expectations.</li>
-        <li>Smart Promotions: Strategically plan promotions based on predictive insights.</li>
-        <li>Competitive Edge: Stay ahead by responding swiftly to market shifts.</li>
-        <li>Optimized Supply Chain: Streamline operations for cost-effective supply chain management.</li>
-        <li>Support for Strategic Decisions: Informed decision-making for sustained growth.</li>
-        <li>Reduce Financial Risks: Improve budget management efficiency through accurate sales forecasts.</li>
-        <li>Raise Shareholder Confidence: Provide stakeholders with reliable projections, enhancing trust.</li>
-    </ul>
+
+<h2>🌟 Image Classification - Cats 😺 vs Dogs 🐶 Problem 🌟</h2>
 
 
 
-        <h3>Situation:</h3>
-          Walmart is at the nexus of leveraging its rich dataset to drive decision-making efficiency. The precision of sales predictions becomes pivotal, steering the company away from both tangible and missed revenue opportunities.
-          Key Question:
-          How can Walmart forecast daily sales for the next 28 days, leveraging hierarchical sales data effectively?
-          Proposed Solution:
-          The proposed solution involves harnessing the power of machine learning to predict future sales. By embracing advanced analytics, we  aim to enhance the  forecast accuracy for Walmart, ensuring a proactive and data-driven approach to sales management.
+<h4>Table of Contents</h4> 
 
-          This strategic integration of data science not only addresses current challenges but positions Walmart at the forefront of innovative and efficient retail practices, fostering sustained growth and market leadership.
-
-         <h2>2. Data Description & Exploratory Data Analysis</h2> 
-
-          <img width="670" alt="Screenshot 2024-01-04 at 19 59 54" src="https://github.com/trungle14/WalmartSalesForecasting/assets/143222481/ca4cde95-c4f4-4399-8041-071ab7ac8683">
-
-          This table shows the overview of the Input Data:
-          Raw Data	Description	# Feature	# Record	Data Size
-          calendar.csv	Workday & Special event day (e.g. SuperBowl)	14	1.9 K	103 kB 
-          sell_prices.csv	Price of the products sold per store and date	4	6.84 M	203.4 MB
-          sales_train_validation.csv	historical daily unit sales data per product and store [d1 - d1913]	1019	30.5 K	120 MB
-          sales_train_evaluation.csv	sales [d1 - d_1941]	1047	30.5 K	121.7 MB
-          Based on the structure of data we see the data would be of below format:
-
-          <img width="685" alt="Screenshot 2024-01-04 at 20 00 36" src="https://github.com/trungle14/WalmartSalesForecasting/assets/143222481/d5acb20b-a021-4245-8f3d-27e581c4b1a9">
-
-
-          <h2>3. Methodology </h2>  
-
-
-          <img width="660" alt="Screenshot 2024-01-04 at 22 49 07" src="https://github.com/trungle14/WalmartSalesForecasting/assets/143222481/56702eff-a1f8-4fbe-ad85-ceb02ba3dde6">
+1. Problem overview
+2. Data processing<br>
+   2.1. Import Libraries<br>
+   2.2. Preprocessing<br>
+        2.2.1. Extract and generate image<br>
+        2.2.2. EarlyStopping setting
+3. Models Training & Prediction<br>
+   3.1. Convolutional Network<br>
+   3.2. Convolutional Network with multiple different epoch<br>
+   3.3. Stack model with transfer learning and convolutional network<br>
+   3.4. Transfer learning Xception model
+4. Evaluate the model<br>
+   4.1. Generate prediction<br>
+   4.2. Confusion Matrix
+5. Conclusion
 
 
 
-
-          <h3>3.3.1. Price feature</h3><br>
-          We are doing feature engineering here to get price related data, we have week wise data of price (we have price features for test weeks as well).
-          We are using expanding max price , minimum price , standard deviation , mean, so that there is no data   leakage from future to past, and ,model can solely use the past data using expanding method (since the data is already sorted time wise we are not sorting again , saves in computation time).
+<h4> 1. Problem overview </h4>
 
 
-          <h3>3.3.2. Calendar features</h3><br>
-          we see prices of some items starting for a particular week, which might indicate that would be release week for the product so we can use data in base data frame after that point (as since earlier data was in long format it would have data for all items through all days)
-          This reduces the size of the data and will have features of when the product was released (capturing any trends if items get sold when we are predicting for volumes closer to release dates). Then we do label encoding of the categorical features so that they can be used for regression algorithms
+For an effective approach combining both Deep Neural Networks (DNNs) and Transfer Learning in classifying images of cats and dogs, you can start with a pre-trained DNN model, such as ResNet, VGG, or Inception, which has already learned rich feature representations from a large and diverse dataset. Then, you adapt this model to our specific task (classifying cats and dogs) by fine-tuning some of its layers with our dataset of cat and dog images. This method utilizes the advanced feature extraction capabilities of DNNs and the efficiency of Transfer Learning, enabling our model to achieve high accuracy with less training data and time.
+
+Will Cukierski. (2016). Dogs vs. Cats Redux: Kernels Edition. Kaggle. https://kaggle.com/competitions/dogs-vs-cats-redux-kernels-edition
 
 
-          <h3>3.3.3. Lag and rolling lags features</h3><br>
-          Another important feature we observed in winning solutions is they used lags data and roll data in feature engineering. This gives how trends data could be captured using a regression algorithm , though we are not specifically using time series data.
-          For this we have considered rolling sum of the number of times, 0 units of product were sold, 7, 14, 30, 60, 180 days of roll (week, 2 weeks, approx month, 2 months approx, approx half year), with this we will be able to capture trend details.
-          As next important features we have chosen lag features (these will capture sales with a lag of that many days we have in feature.
+  <h4> 2. Data processing</h4>
+   <h4> 2.1. Import Libraries </h4>
+
+```python
+# This Python 3 environment comes with many helpful analytics libraries installed
+# It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python
+# For example, here's several helpful packages to load
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+
+# Input data files are available in the read-only "../input/" directory
+# For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory
+
+import os
+for dirname, _, filenames in os.walk('/kaggle/input'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
+
+# You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using "Save & Run All" 
+# You can also write temporary files to /kaggle/temp/, but they won't be saved outside of the current session
 
 
-          <h3>3.3.4. Categories - Item, Store, Department, State Level Features</h3><br>
-          We then use category wise sales data, item wise sales data, department wise sales data (across all stores), then also use store and category wise sales data, store and item wise sales data, store and department wise sales data. This gives cross sectional features that our model could pick if there is any trend.
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers, models, optimizers
+from keras.layers import Dense, MaxPool2D, Conv2D, Dropout, Flatten, GlobalAveragePooling2D, BatchNormalization, Activation, MaxPooling2D
+from keras.models import Sequential
 
 
+from keras.callbacks import ReduceLROnPlateau
+from keras.callbacks import EarlyStopping
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, confusion_matrix
+from tensorflow.keras.optimizers import Adam
 
-          <h3>4. Model Training and Prediction</h3><br>
+from tensorflow.keras.applications import DenseNet121
+from tensorflow.keras.applications import ResNet50V2
+from tensorflow.keras.applications import ResNet152V2
+from tensorflow.keras.applications import InceptionV3
+from tensorflow.keras.applications import Xception
 
-          <h3>Train and Predict</h3><br>
-          First we need to model comparison to see which model produces a better kaggle score and use that model , then optimize the step size so as to improve the score further.
-          through this process we are basically using the sales data that we have on t- step (for example during model selection here for 1- 14 days prediction step will be 14, and from 14 till 28th day step will be 28 days)
-          Then we run a prediction model where we first loop over store and department to train the model (slow) , next over store and category (will be quicker) and take average of both the methods to arrive at final submission.
-
-
-
-          <h3>LightGBM</h3><br>
-          <img width="1080" alt="Screenshot 2024-01-06 at 22 29 14" src="https://github.com/trungle14/WalmartSalesForecasting/assets/143222481/6f93c326-e9eb-41cf-b1db-3ce0eec7ffaf">
-
-          <h3>Extreme Gradient Boosting - XGBOOST</h3><br>
-          <img width="1084" alt="Screenshot 2024-01-06 at 22 30 52" src="https://github.com/trungle14/WalmartSalesForecasting/assets/143222481/19b07cc1-9c98-4cd2-9cd8-46d53e6599f6">
-
-
-          <h3>Neural network</h3><br>
-          <img width="784" alt="Screenshot 2024-01-06 at 22 37 13" src="https://github.com/trungle14/WalmartSalesForecasting/assets/143222481/86d7c335-5570-47e0-98b1-4ec673617643">
+from tensorflow.keras.optimizers.schedules import ExponentialDecay
+from tensorflow.keras.optimizers import Adam
 
 
-                <p><h3>Model Comparison</h3></P>
-    <table border="1">
-        <tr>
-            <th>Models</th>
-            <th>Hyperparameters</th>
-            <th>Kaggle Score</th>
-        </tr>
-        <tr>
-            <td>LightGBM</td>
-            <td><a href="#lightgbm-parameters">See Hyperparameters</a></td>
-            <td>0.5302</td>
-        </tr>
-        <tr>
-            <td>XGBoost</td>
-            <td><a href="#xgboost-parameters">See Hyperparameters</a></td>
-            <td>0.5599</td>
-        </tr>
-        <tr>
-            <td>Neural Network</td>
-            <td><a href="#neural-network-parameters">See Hyperparameters</a></td>
-            <td>0.728</td>
-        </tr>
-    </table>
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+```
 
 
-               <br> <h4>LightGBM Parameters</h4>
-    <pre><code>
-lgb_params = {{
-    'boosting_type': 'gbdt',
-    'objective': 'tweedie',
-    'tweedie_variance_power': 1.1,
-    'metric': 'rmse',
-    'subsample': 0.5,
-    'subsample_freq': 1,
-    'min_child_weight': 1,
-    'learning_rate': 0.03,
-    'num_leaves': 2 ** 11 - 1,
-    'min_data_in_leaf': 2 ** 12 - 1,
-    'feature_fraction': 0.5,
-    'max_bin': 100,
-    'n_estimators': 1400,
-    'boost_from_average': False,
-    'verbosity': -1
-}}
-Lgbm = LGBMRegressor(**lgb_params)
-callbacks = [early_stopping(stopping_rounds=50, first_metric_only=False)]
-    </code></pre>
+   ## 2.2. Preprocessing
+   <h4> 2.2.1. Extract and generate image
 
-    <h4>XGBoost Parameters</h4>
-    <pre><code>
-# Train model with Keras for a regression problem
-model = tf.keras.models.Sequential([
-    tf.keras.layers.Dense(64, activation='relu', input_shape=(trainX.shape[1],)),
-    tf.keras.layers.Dense(1, activation='linear') # Linear activation for regression
+   <pre><code>
+import zipfile
+train_zip='../input/dogs-vs-cats-redux-kernels-edition/train.zip'
+zip_ref=zipfile.ZipFile(train_zip,'r').extractall('./')
+
+test_zip = '../input/dogs-vs-cats-redux-kernels-edition/test.zip'
+zip_ref=zipfile.ZipFile(test_zip,'r').extractall('./')
+
+import os
+train_filenames = os.listdir('./train')
+test_filenames = os.listdir('./test')
+
+# Create DataFrame with ImageDataGenerator
+train = pd.DataFrame(columns=['path', 'label'])
+train['path'] = train_filenames
+train['label'] = train['path'].str[0:3]
+
+train.label.value_counts().plot.bar() # Balanced Data
+
+width, height = 150, 150
+trainDatagen = train_datagen.flow_from_dataframe(train, directory = './train', x_col='path', y_col='label', classes=['cat', 'dog' ],
+                                           target_size=(width,height), class_mode = 'categorical', batch_size = 16,
+                                           subset='training')
+
+valDatagen = train_datagen.flow_from_dataframe(train, directory = './train', x_col='path', y_col='label', classes=['cat','dog'],
+                                           target_size=(width,height), class_mode = 'categorical', batch_size = 16,
+                                           subset='validation')
+
+
+x, y = trainDatagen.next()
+x.shape, y.shape
+
+# Display the training data
+
+plt.figure(figsize=(15,15))
+for i in range(9):
+    img, label = trainDatagen.next()
+    plt.subplot(331+i)
+    plt.imshow(img[0])
+plt.show()
+   </pre></code>
+<img width="663" alt="Screenshot 2024-01-20 at 00 16 42" src="https://github.com/trungle14/Image_Classification_Deep_Neural_Network/assets/143222481/ec5d5021-06a8-400e-aed5-c6cb4984827d">
+
+   <pre><code>
+# Test data
+
+test = pd.DataFrame(columns=['path'])
+test['path'] = test_filenames
+test.head()
+
+test_datagen = ImageDataGenerator(rescale=1/255.0)
+width, height = 150, 150
+testDatagen = test_datagen.flow_from_dataframe(test, directory = './test', x_col='path', class_mode= None,
+                                           target_size=(width,height), batch_size = 16, shuffle=False)
+
+   </pre></code>
+
+
+## 3. Models Training & Prediction
+<h4> 3.1. Convolutional Network
+
+   <pre><code>
+model = models.Sequential()
+model.add(layers.Conv2D(64,(3,3),activation='relu',input_shape=(150,150,3)))
+model.add(layers.MaxPooling2D((2,2)))
+ 
+model.add(layers.Conv2D(64,(3,3),activation='relu'))
+model.add(layers.MaxPooling2D((2,2)))
+model.add(layers.BatchNormalization())
+model.add(layers.Dropout(0.3))
+    
+model.add(layers.Conv2D(128,(3,3),activation='relu'))
+model.add(layers.MaxPooling2D((2,2)))
+ 
+model.add(layers.Conv2D(128,(3,3),activation='relu'))
+model.add(layers.MaxPooling2D((2,2)))
+model.add(layers.BatchNormalization())
+model.add(layers.Dropout(0.3))
+
+model.add(layers.Flatten())
+
+model.add(layers.Dense(256,activation='relu'))
+model.add(layers.Dense(2,activation='softmax'))
+
+model.compile(loss="categorical_crossentropy",optimizer=optimizers.Adam(learning_rate=1e-4),metrics=['acc'])
+ 
+model.summary()
+
+history = model.fit(trainDatagen, steps_per_epoch = len(trainDatagen), epochs=10, validation_data = valDatagen, validation_steps=len(valDatagen), shuffle=True)
+
+predictions = model.predict(testDatagen, batch_size=32, verbose =1)
+predictions
+
+submission = pd.read_csv('../input/dogs-vs-cats-redux-kernels-edition/sample_submission.csv')
+submission['label'] = predictions[:,0]
+submission.to_csv('submission_cnn_epoch10.csv', index=False)
+submission.head()
+   </pre></code>
+
+   <pre><code>
+history = model.fit(trainDatagen, steps_per_epoch = len(trainDatagen), epochs=15, validation_data = valDatagen, validation_steps=len(valDatagen), shuffle=True)
+
+predictions1 = model.predict(testDatagen, batch_size=32, verbose =1)
+predictions1
+
+submission1 = pd.read_csv('../input/dogs-vs-cats-redux-kernels-edition/sample_submission.csv')
+submission1['label'] = predictions1[:,0]
+submission1.to_csv('submission_ep15_1.csv', index=False)
+submission1.head()
+   </pre></code>
+
+## 3.2. Transfer learning Xception model
+
+```python
+images_size = 150
+batch_size = 32
+
+base_model = Xception(weights='imagenet', include_top=False, input_shape=(images_size, images_size, 3))
+for layer in base_model.layers:
+    layer.trainable = False
+
+model = models.Sequential([
+    base_model,
+    
+    layers.Flatten(),
+    
+    layers.Dense(256,activation='relu'),
+    layers.Dropout(0.5),
+    layers.Dense(2,activation='softmax'),
 ])
 
+model.summary()
+
+learning_rate_schedule = keras.optimizers.schedules.ExponentialDecay(
+    initial_learning_rate=0.01,  # Initial learning rate for training
+    decay_steps=1000,            # Number of steps before decaying the learning rate
+    decay_rate=0.5,              # Rate at which the learning rate decreases
+)
+optimizer = optimizers.Adam(learning_rate=learning_rate_schedule)
+model.compile(optimizer=optimizer,
+             loss="categorical_crossentropy",
+              metrics=['accuracy']
+             )
+from tensorflow.keras.callbacks import LearningRateScheduler
+early_stopping = EarlyStopping(
+    min_delta=0.001, # minimium amount of change to count as an improvement
+    patience=5, # how many epochs to wait before stopping
+    restore_best_weights=True,
+)
+learning_rate_reduce = ReduceLROnPlateau(
+    monitor='val_acc',   # Metric to monitor for changes (usually validation accuracy)
+    patience=5,          # Number of epochs with no improvement after which learning rate will be reduced
+    verbose=1,           # Verbosity mode (0: silent, 1: update messages)
+    factor=0.5,          # Factor by which the learning rate will be reduced (e.g., 0.5 means halving)
+    min_lr=0.00001       # Lower bound for the learning rate (it won't go below this value)
+)
+lr_callback = LearningRateScheduler(learning_rate_schedule)
+callback=[ lr_callback , learning_rate_reduce ,early_stopping ]
+
+
+
+
+# ExponentialDecay for the learning rate
+learning_rate_schedule = keras.optimizers.schedules.ExponentialDecay(
+    initial_learning_rate=0.01,
+    decay_steps=1000,
+    decay_rate=0.5,
+)
+
+# Use this learning rate schedule in the optimizer
+optimizer = optimizers.Adam(learning_rate=learning_rate_schedule)
+
 # Compile the model
-model.compile(optimizer='adam', loss='mean_squared_error', metrics=['mean_squared_error'])
+model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=['accuracy'])
 
-# Train the model
-history = model.fit(trainX, trainY, epochs=5, batch_size=32, validation_data=(valX, valY))
+# Callbacks (without LearningRateScheduler)
+callbacks = [
+    EarlyStopping(
+        min_delta=0.001,
+        patience=5,
+        restore_best_weights=True,
+    ),
+    # Optionally include ReduceLROnPlateau if you want to use it instead of ExponentialDecay
+]
 
-# Make predictions on the test set
-yhat = model.predict(testX).flatten()
+# Fit the model
+history = model.fit(
+    trainDatagen,
+    steps_per_epoch=trainDatagen.samples // batch_size,
+    epochs=20,
+    validation_data=valDatagen,
+    validation_steps=valDatagen.samples // batch_size,
+    callbacks=callbacks
+)
 
-preds = grid[(grid['d'] >= pred_start) & (grid['d'] <= pred_end)][['id', 'd']]
-preds['sales'] = yhat
-predictions = pd.concat([predictions, preds], axis=0)
-    </code></pre>
-    <pre><code>
-xgb_params = {{
-    'objective': 'reg:tweedie',
-    'eval_metric': 'rmse',
-    'subsample': 0.5,
-    'colsample_bytree': 0.5,
-    'learning_rate': 0.03,
-    'max_depth': 11,
-    'min_child_weight': 4096,
-    'n_estimators': 1400,
-    'max_bin': 100,
-    'seed': 42
-}}
-    </code></pre>
+
+
+predictions_xcep = model.predict(testDatagen, batch_size=32, verbose =1)
+predictions_xcep
+
+
+submission1 = pd.read_csv('../input/dogs-vs-cats-redux-kernels-edition/sample_submission.csv')
+submission1['label'] = predictions_xcep[:,0]
+submission1.to_csv('submission_xception.csv', index=False)
+submission1.head()
+```
+
+
+## 3.3. Stack model with transfer learning and convolutional network
+
+
+```python
+from tensorflow.keras import layers, models
+from tensorflow.keras.applications import VGG16
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import concatenate
+
+
+# Load VGG16 model
+vgg16 = VGG16(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
+
+# Custom CNN Model
+custom_cnn = models.Sequential([
+    layers.Conv2D(64, (3, 3), activation='relu', input_shape=(224, 224, 3)),
+    layers.MaxPooling2D((2, 2)),
+    layers.Conv2D(64, (3, 3), activation='relu'),
+    layers.MaxPooling2D((2, 2)),
+    layers.BatchNormalization(),
+    layers.Dropout(0.3),
+    layers.Conv2D(128, (3, 3), activation='relu'),
+    layers.MaxPooling2D((2, 2)),
+    layers.Conv2D(128, (3, 3), activation='relu'),
+    layers.MaxPooling2D((2, 2)),
+    layers.BatchNormalization(),
+    layers.Dropout(0.3),])
+
+# Feature extraction
+# Add GlobalAveragePooling2D to both models
+vgg_output = GlobalAveragePooling2D()(vgg16.output)
+custom_cnn_output = GlobalAveragePooling2D()(custom_cnn.output)
+
+# Concatenate features
+combined = layers.concatenate([vgg_output, custom_cnn_output])
+
+
+# Additional layers
+x = layers.Flatten()(combined)
+x = layers.Dense(1024, activation='relu')(x)
+#-- output = layers.Dense(10, activation='softmax')(x)  # Adjust number of units based on your problem
+output = layers.Dense(2, activation='sigmoid')(x)
+
+
+# Combined model
+model = Model(inputs=[vgg16.input, custom_cnn.input], outputs=output)
+
+# Compile and train
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])# Fit the model
+
+
+def generate_dual_input(generator):
+    for (inputs, labels) in generator:
+        yield [inputs, inputs], labels
+
+# Create dual-input generators
+train_dual_gen = generate_dual_input(trainDatagen)
+val_dual_gen = generate_dual_input(valDatagen)
+
+
+history = model.fit(
+    train_dual_gen,
+    steps_per_epoch=len(trainDatagen),
+    validation_data=val_dual_gen,
+    validation_steps=len(valDatagen),
+    epochs=10  # Adjust as needed
+)
+
+def generate_dual_input_test(generator):
+    for inputs in generator:
+        yield [inputs, inputs]
+
+
+test_dual_gen = generate_dual_input_test(testDatagen)
+predictions_stacked = model.predict(test_dual_gen, steps=len(testDatagen), verbose=1)
+
+submission1 = pd.read_csv('../input/dogs-vs-cats-redux-kernels-edition/sample_submission.csv')
+submission1['label'] = predictions_stacked[:,0]
+submission1.to_csv('submission_stacked.csv', index=False)
+submission1.head()
+```
+
+
+```pytohon
+acc = history.history['accuracy']
+val_acc = history.history['val_accuracy']
+epochs = range(len(acc))
+
+plt.plot(epochs, acc, 'b', label='Training Accuracy')
+plt.plot(epochs, val_acc, 'r', label='Validation Accuracy')
+plt.title('Accuracy Graph')
+plt.legend()
+plt.figure()
+```
+<img width="333" alt="Screenshot 2024-01-20 at 15 16 45" src="https://github.com/trungle14/Image_Classification_Deep_Neural_Network/assets/143222481/826f7f67-c6af-4e2f-870c-93d78d5d3648">
+
+
+<h4># Since we do not have actual label of test dataset on kaggle in order to calculate performance metric like accuracy or precision. In this case, I would like to check it manually by displaying picture along with the predicted label.
+
+<img width="320" alt="Screenshot 2024-01-20 at 15 18 15" src="https://github.com/trungle14/Image_Classification_Deep_Neural_Network/assets/143222481/478ac336-409b-4d50-a13c-84da1a0ccc57">
+
+The results show that out of 21 samples out of 12500, we can get 14/21 correct at the cut-off of 80%.
+Notice that these results could be relatively sensitive with the chosen cut-off. More importantly, with the small number of sample in the test dataset we can prove that our model does a great job, although the prediction is not really high but always better than random guess.
+
+## Conclusion
+
+I already tried 4 different models and gained different results accordingly.
+
+Deep Convolutional network along with batch normalization : 2.4 Kaggle score
+Enhance Deep Convolutional network with higher epoch: 5.4 Kaggle score
+Stacked model with Transfer learning - VGG16 and Convolutional network: 1.1 Kaggle score
+Transfer learning - Xception model: 10.8 Kaggle score
+We can see that the Stacked model outperformed the others which is totally make sense when we can combine 2 different kind of models to increase the performacne, due to limitation of time, I only do the stacked model with only 2 models, if I had more time I believe stacked model among transfer learning like ResNet may be able to improve the performance
 
                       
                       
