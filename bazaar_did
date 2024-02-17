@@ -117,71 +117,51 @@
 </body>
 </html>
 
-<h4> Machine Learning Model - Cloud Computing and AWS</h4> <br>
+ <h1>Business Overview of Bazaar.com</h1>
+    <p>Bazaar.com, a prominent online retailer in the United States, has established a significant presence in digital advertising, focusing on both display and search engine advertising, particularly in running paid search ads across platforms like Google and Bing. The company classifies its paid advertisements into two main categories: branded and non-branded keywords.</p>
 
-![](https://img.shields.io/badge/<AWS>-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=#FF6E54)
-![](https://img.shields.io/badge/<Sagemaker>-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=#FF6E54)
-![](https://img.shields.io/badge/<XGBOOST>-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=#FF6E54)
-![](https://img.shields.io/badge/<Machine_Learning_Pipeline>-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=#FF6E54)
+    <h2>Introduction to the Difference in Difference (DiD) Approach</h2>
+    <p>Before diving into DiD, consider a hypothetical scenario involving Lionel Messi's transfer to FC Miami and its impact on Florida's tourism, as a way to understand the effect of significant sports events on tourism. The DiD method is commonly used for assessing the impacts of large-scale policy changes or interventions by comparing the before and after effects of the intervention.</p>
 
+    <h2>Challenges with Bob’s ROI Analysis</h2>
+    <p>Bob, from Bazaar's marketing analytics team, calculated a 320% ROI from sponsored ads, raising concerns about the potential overestimation of the ads' effectiveness, as customers searching for 'Bazaar' might already be inclined to visit the website, thereby questioning the actual impact of branded keyword ads.</p>
 
+    <h2>Defining Treatment and Control Groups</h2>
+    <p>The experiment treats the stoppage of sponsored ads as a causal test, with Google serving as the treatment group (impacted by the outage) and Bing, Yahoo, and Ask as control groups (unaffected by the outage).</p>
 
+    <h2>First Difference Estimate</h2>
+    <p>The initial analysis focuses on the change in total web traffic following the ad outage. The log transformation of data addresses skewness, facilitating a more accurate model building process.</p>
+    
+    <div class="code-snippet">
+        <!-- R code for First Difference Estimate -->
+        <code>
+            # Simple pre-post estimator
+            google_data&lt;- data % filter(platform == "goog")
+            model &lt;- lm(log(total_traffic) ~ after, data = google_data)
+            summary(model)
+        </code>
+    </div>
 
-![](https://img.shields.io/badge/DATASET-8A2BE2)
-<h4> The abalone dataset has been used to predict the age of abalone from physical measurements. The age of abalone is determined by cutting the shell through the cone, staining it, and counting the number of rings through a microscope - - a boring and time-consuming task. Other measurements, which are easier to obtain, are used to predict the age. Further information, such as weather patterns and location(hence food availability) may be required to solve the problem.
- More information about the dataset is at: https:// archive.ics.uci.edu/ml/datasets/abalone </h4>
+    <h2>Difference-in-Differences Analysis</h2>
+    <p>Ensuring parallel trends before conducting a DiD analysis is crucial. The visualization of trends indicates an increasing divergence, suggesting careful interpretation of DiD results is necessary.</p>
+    
+    <div class="code-snippet">
+        <!-- R code for Visualization and DiD Regression -->
+        <code>
+            # Visualization of parallel trend
+            # Difference-in-Differences regression
+            model_did &lt;- lm(total_traffic ~ treatment + factor(week) + treatment * factor(week),data=data)
+            summary(model_did)
+            
+            did &lt;- lm(total_traffic ~ treatment + after + treatment * after, data=data)
+            summary(did)
+        </code>
+    </div>
 
-![](https://img.shields.io/badge/COPY_OF_SAMPLE_DATAFILE_ON_AWS_S3-8A2BE3)
-<h4> A copy of the data is available through sagemaker sample data files at s3: // sagemaker-sample-files/datasets/tabular/uci_abalone/abalone.csv </h4>
+    <h2>Conclusion</h2>
+    <p>The DiD analysis, despite the initial lack of parallel trends, underscores the significant causal impact of sponsored ads on web traffic, challenging the initial ROI estimations and highlighting the nuanced understanding required in such analyses.</p>
 
-<b>Data Collection</b>
-Collect the raw data from various sources (e.g., databases, CSV files on S3).
-
-<b>Data Preparation</b>
-
-Preprocess the data (cleaning, normalization, feature engineering).
-Split the data into training, validation, and test sets.
-Select a suitable machine learning algorithm for the problem at hand.
-Configure SageMaker Training Job
-
-Set up the training job in SageMaker, specifying:
-The algorithm or bring your own model
-Resource requirements (instance type, count)
-Input and output data locations (usually S3 paths)
-Hyperparameters
-
-<b>Train the Model</b>
-
-Execute the training job in SageMaker.
-Monitor the training process through SageMaker console or CloudWatch.
-
-<b>Model Evaluation</b>
-
-Evaluate the trained model's performance using the test dataset.
-If the performance is unsatisfactory, return to step 3, 4, or 5 as needed.
-Model Deployment
-
-Create a SageMaker model by specifying the S3 location of the trained model artifacts and the Docker container for inference.
-Deploy the model to a SageMaker endpoint for real-time or batch predictions.
-Monitor and Update
-
-Monitor the model's performance in production using SageMaker monitoring tools.
-Update the model as necessary by retraining with new data or adjusting hyperparameters.
-
-
-The process concludes when the model is successfully deployed and operating as expected.
-
-<b>Importance Notice</b>
-
-Iterative Process: Model development in SageMaker is iterative. Based on model evaluation results, you may need to adjust preprocessing steps, reselect algorithms, or retune hyperparameters.
-
-Automation: Many steps can be automated using SageMaker's built-in features, such as Automatic Model Tuning for hyperparameter optimization, and SageMaker Pipelines for automating and orchestrating the entire ML workflow.
-
-Integration: SageMaker integrates with other AWS services, like S3 for data storage, CloudWatch for monitoring, and IAM for access control, providing a comprehensive and secure ML lifecycle environment.
-
-![](https://img.shields.io/badge/FLOWCHART-8A3BE3)
-
-<img width="800" src="assets/img/rsz_aws_ml.png">
+    <p class="important">Note: The R code snippets provided are intended for illustrative purposes and are embedded as comments within the HTML structure. They need to be executed in an R environment for actual analysis.</p>
 
 
   
