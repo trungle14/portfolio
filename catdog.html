@@ -263,8 +263,8 @@ testDatagen = test_datagen.flow_from_dataframe(test, directory = './test', x_col
    </pre></code>
 
 
-## 3. Models Training & Prediction
-<h4> 3.1. Convolutional Network
+<h4>  3. Models Training & Prediction </h4>
+<h4> 3.1. Convolutional Network </h4>
 
    <pre><code>
 model = models.Sequential()
@@ -316,9 +316,9 @@ submission1.to_csv('submission_ep15_1.csv', index=False)
 submission1.head()
    </pre></code>
 
-## 3.2. Transfer learning Xception model
+<h4>  3.2. Transfer learning Xception model </h4>
 
-```python
+   <pre><code>
 images_size = 150
 batch_size = 32
 
@@ -410,7 +410,7 @@ submission1 = pd.read_csv('../input/dogs-vs-cats-redux-kernels-edition/sample_su
 submission1['label'] = predictions_xcep[:,0]
 submission1.to_csv('submission_xception.csv', index=False)
 submission1.head()
-```
+   </pre></code>
 
 
 ## 3.3. Stack model with transfer learning and convolutional network
