@@ -117,7 +117,7 @@
 </body>
 </html>
 
-          <h1>1. Overview</h1>
+          <h2>1. Overview</h2>
     <h3>1.1. Description of Project</h3>
     <p>This is a prediction problem project for Walmart (A Top Retail Group) Sales dataset from Kaggle for the unit sales forecasting. Advanced and comprehensive analytics skills, including Exploratory Data Analysis and Machine Learning Data Prediction Analysis techniques will be used in this case for generating data-driven business insights.</p>
     <h2>1.2. Business Context</h2>
@@ -149,7 +149,7 @@
 
           This strategic integration of data science not only addresses current challenges but positions Walmart at the forefront of innovative and efficient retail practices, fostering sustained growth and market leadership.
 
-         <h1>2. Data Description & Exploratory Data Analysis</h1> 
+         <h2>2. Data Description & Exploratory Data Analysis</h2> 
 
           <img width="670" alt="Screenshot 2024-01-04 at 19 59 54" src="https://github.com/trungle14/WalmartSalesForecasting/assets/143222481/ca4cde95-c4f4-4399-8041-071ab7ac8683">
 
@@ -195,7 +195,7 @@
 
           <h3>4. Model Training and Prediction</h3><br>
 
-          <h3>Train and Predict<h3><br>
+          <h3>Train and Predict</h3><br>
           First we need to model comparison to see which model produces a better kaggle score and use that model , then optimize the step size so as to improve the score further.
           through this process we are basically using the sales data that we have on t- step (for example during model selection here for 1- 14 days prediction step will be 14, and from 14 till 28th day step will be 28 days)
           Then we run a prediction model where we first loop over store and department to train the model (slow) , next over store and category (will be quicker) and take average of both the methods to arrive at final submission.
@@ -236,6 +236,66 @@
             <td>0.728</td>
         </tr>
     </table>
+
+
+                <h2>LightGBM Parameters</h2>
+    <pre><code>
+lgb_params = {{
+    'boosting_type': 'gbdt',
+    'objective': 'tweedie',
+    'tweedie_variance_power': 1.1,
+    'metric': 'rmse',
+    'subsample': 0.5,
+    'subsample_freq': 1,
+    'min_child_weight': 1,
+    'learning_rate': 0.03,
+    'num_leaves': 2 ** 11 - 1,
+    'min_data_in_leaf': 2 ** 12 - 1,
+    'feature_fraction': 0.5,
+    'max_bin': 100,
+    'n_estimators': 1400,
+    'boost_from_average': False,
+    'verbosity': -1
+}}
+Lgbm = LGBMRegressor(**lgb_params)
+callbacks = [early_stopping(stopping_rounds=50, first_metric_only=False)]
+    </code></pre>
+
+    <h2>XGBoost Parameters</h2>
+    <pre><code>
+# Train model with Keras for a regression problem
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Dense(64, activation='relu', input_shape=(trainX.shape[1],)),
+    tf.keras.layers.Dense(1, activation='linear') # Linear activation for regression
+])
+
+# Compile the model
+model.compile(optimizer='adam', loss='mean_squared_error', metrics=['mean_squared_error'])
+
+# Train the model
+history = model.fit(trainX, trainY, epochs=5, batch_size=32, validation_data=(valX, valY))
+
+# Make predictions on the test set
+yhat = model.predict(testX).flatten()
+
+preds = grid[(grid['d'] >= pred_start) & (grid['d'] <= pred_end)][['id', 'd']]
+preds['sales'] = yhat
+predictions = pd.concat([predictions, preds], axis=0)
+    </code></pre>
+    <pre><code>
+xgb_params = {{
+    'objective': 'reg:tweedie',
+    'eval_metric': 'rmse',
+    'subsample': 0.5,
+    'colsample_bytree': 0.5,
+    'learning_rate': 0.03,
+    'max_depth': 11,
+    'min_child_weight': 4096,
+    'n_estimators': 1400,
+    'max_bin': 100,
+    'seed': 42
+}}
+    </code></pre>
 
                       
                       
