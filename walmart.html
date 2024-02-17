@@ -120,7 +120,7 @@
           <h2>1. Overview</h2>
     <h3>1.1. Description of Project</h3>
     <p>This is a prediction problem project for Walmart (A Top Retail Group) Sales dataset from Kaggle for the unit sales forecasting. Advanced and comprehensive analytics skills, including Exploratory Data Analysis and Machine Learning Data Prediction Analysis techniques will be used in this case for generating data-driven business insights.</p>
-    <h2>1.2. Business Context</h2>
+    <h3>1.2. Business Context</h3>
     <p>In the dynamic landscape of the retail industry, the ability to predict sales accurately is paramount for sustaining and enhancing business operations. For a retail giant like Walmart, whose vast operations span a multitude of products, locations, and customer segments, the challenge of forecasting sales becomes even more intricate.</p>
     <h3>Challenges and Risks:</h3>
     <p>Walmart confronts the formidable task of maximizing decision-making efficiency amid a sea of data. The stakes are high, as inaccurate predictions can lead to substantial losses. Traditional prediction methods, once reliable, now struggle to cope with the complexities of modern retail dynamics. To avoid costly mistakes and enhance forecasting accuracy, there is a pressing need for the integration of cutting-edge data science techniques.</p>
@@ -188,7 +188,7 @@
           As next important features we have chosen lag features (these will capture sales with a lag of that many days we have in feature.
 
 
-          <h3>3.3.4. Categories - Item, Store, Department, State Level Features<h3><br>
+          <h3>3.3.4. Categories - Item, Store, Department, State Level Features</h3><br>
           We then use category wise sales data, item wise sales data, department wise sales data (across all stores), then also use store and category wise sales data, store and item wise sales data, store and department wise sales data. This gives cross sectional features that our model could pick if there is any trend.
 
 
@@ -238,7 +238,7 @@
     </table>
 
 
-                <h2>LightGBM Parameters</h2>
+                <h4>LightGBM Parameters</h4>
     <pre><code>
 lgb_params = {{
     'boosting_type': 'gbdt',
@@ -261,7 +261,7 @@ Lgbm = LGBMRegressor(**lgb_params)
 callbacks = [early_stopping(stopping_rounds=50, first_metric_only=False)]
     </code></pre>
 
-    <h2>XGBoost Parameters</h2>
+    <h4>XGBoost Parameters</h4>
     <pre><code>
 # Train model with Keras for a regression problem
 model = tf.keras.models.Sequential([
