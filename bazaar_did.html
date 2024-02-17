@@ -121,8 +121,9 @@
     <p>Bazaar.com, a prominent online retailer in the United States, has established a significant presence in digital advertising, focusing on both display and search engine advertising, particularly in running paid search ads across platforms like Google and Bing. The company classifies its paid advertisements into two main categories: branded and non-branded keywords.</p>
 
     <h2>Introduction to the Difference in Difference (DiD) Approach</h2>
-    <p>Before diving into DiD, consider a hypothetical scenario involving Lionel Messi's transfer to FC Miami and its impact on Florida's tourism, as a way to understand the effect of significant sports events on tourism. The DiD method is commonly used for assessing the impacts of large-scale policy changes or interventions by comparing the before and after effects of the intervention.</p>
-
+   <blockquote>   <p>Before diving into DiD, consider a hypothetical scenario involving Lionel Messi's transfer to FC Miami and its impact on Florida's tourism, as a way to understand the effect of significant sports events on tourism. 
+     The DiD method is commonly used for assessing the impacts of large-scale policy changes or interventions by comparing the before and after effects of the intervention.</p>
+   </blockquote>
     <h2>Challenges with Bob’s ROI Analysis</h2>
     <p>Bob, from Bazaar's marketing analytics team, calculated a 320% ROI from sponsored ads, raising concerns about the potential overestimation of the ads' effectiveness, as customers searching for 'Bazaar' might already be inclined to visit the website, thereby questioning the actual impact of branded keyword ads.</p>
 
@@ -135,12 +136,25 @@
     <div class="code-snippet">
         <!-- R code for First Difference Estimate -->
         <code>
-            # Simple pre-post estimator
+            # Simple pre-post estimator<br>
             google_data&lt;- data % filter(platform == "goog")
-            model &lt;- lm(log(total_traffic) ~ after, data = google_data)
+            model &lt;- lm(log(total_traffic) ~ after, data = google_data)<br>
             summary(model)
         </code>
     </div>
+
+                         <h2>R Code Snippet</h2>
+    <pre><code>setwd ("/Users/Trung/Downloads")
+data = read.csv('did_sponsored_ads.csv')
+treatment_week = c(10,11,12)
+data &lt;- data %&gt;% mutate(treatment = ifelse(platform == 'goog',1,0),
+                       after = ifelse(week %in% treatment_week,1,0),
+                       total_traffic = avg_spons + avg_org)
+
+google_Ad = data %&gt;% filter (platform=="goog")
+#Plotting the histogram for total clicks on Google
+hist(google_Ad$total_traffic)</code></pre>
+                      
 
     <h2>Difference-in-Differences Analysis</h2>
     <p>Ensuring parallel trends before conducting a DiD analysis is crucial. The visualization of trends indicates an increasing divergence, suggesting careful interpretation of DiD results is necessary.</p>
