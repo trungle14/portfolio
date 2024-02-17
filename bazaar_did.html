@@ -186,18 +186,18 @@ temp3 = data %>%  filter(platform %in%  c('ask')) %>% select(week, total_traffic
 
 ggplot(data %>% filter(platform == 'goog'), aes(x=week, y= total_traffic, color = 'Google')) +
   geom_line() +
-  geom_line(aes(x=week, y= total_traffic, color = 'Bing'), data = temp1) +
-  geom_line(aes(x=week, y= total_traffic, color = 'Yahoo'), data = temp2) +
-  geom_line(aes(x=week, y= total_traffic, color = 'Ask'), data = temp3) +
-  geom_vline(xintercept = 9,color='red') +
-  scale_y_continuous(sec.axis = sec_axis(~./6)) +
-  scale_x_continuous(breaks = seq(1, 12, by = 1)) +
-  labs(y = "Total Traffic", x = "Week") +
-  theme_bw() +
+  geom_line(aes(x=week, y= total_traffic, color = 'Bing'), data = temp1) +<br>
+  geom_line(aes(x=week, y= total_traffic, color = 'Yahoo'), data = temp2) +<br>
+  geom_line(aes(x=week, y= total_traffic, color = 'Ask'), data = temp3) +<br>
+  geom_vline(xintercept = 9,color='red') +<br>
+  scale_y_continuous(sec.axis = sec_axis(~./6)) +<br>
+  scale_x_continuous(breaks = seq(1, 12, by = 1)) +<br>
+  labs(y = "Total Traffic", x = "Week") +<br>
+  theme_bw() +<br>
   theme(legend.title = element_blank())
-    </code>
+    </code><br>
 
-<img width="630" alt="Screenshot 2024-01-25 at 23 12 03" src="https://github.com/trungle14/trungle14.github.io/assets/143222481/696dd200-67a6-47ea-a569-d0cf7b1e0bfa">
+<img width="630" alt="Screenshot 2024-01-25 at 23 12 03" src="https://github.com/trungle14/trungle14test/assets/143222481/696dd200-67a6-47ea-a569-d0cf7b1e0bfa">
 
 
 The graph shows no parallel trends, but rather an increasing divergence until week 9, followed by a decrease in Google's click-through numbers compared to other platforms, indicating convergence. Therefore, while DiD analysis remains valuable, it requires cautious application and careful interpretation of the results.
