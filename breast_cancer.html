@@ -120,98 +120,42 @@
 </body>
 </html>
 
-                      <p class="mb-30"><b>Abstract:</b> 
+<p>The motivation for applying machine learning to breast cancer prediction is multifaceted and significant. Breast cancer is one of the most common cancers worldwide and early detection is crucial for effective treatment and improved patient outcomes. Here are some key motivations:</p>
 
-                          <p>The project introduces a comprehensive solution for enhancing inventory management in the e-commerce domain. Leveraging the robust capabilities of Google Cloud Platform, our system integrates Big Data and Machine Learning to optimize inventory levels. The core of our analytics pipeline resides in Google BigQuery, where data summarization and analysis take place, providing dynamic insights into inventory availability and accurate demand forecasting. The culmination of our efforts is a user-friendly dashboard developed on Google's Looker Studio. This platform empowers end-users and clients to intuitively visualize product inventory counts and forecasts, facilitating informed decision-making and efficient inventory control.</p>
+<p><strong>Early Detection and Diagnosis:</strong> Machine learning models can assist in the early detection of breast cancer, often identifying malignancies that may be missed by traditional methods. Early diagnosis is crucial as it can significantly increase the chances of successful treatment.</p>
 
+<p><strong>Enhancing Accuracy:</strong> Machine learning algorithms can process vast amounts of data and recognize complex patterns that might not be apparent to human observers. This can lead to more accurate diagnoses, reducing the rate of false positives and negatives, which are common in traditional diagnostic methods like mammography.</p>
 
+<p><strong>Personalized Treatment Plans:</strong> Machine learning can help in predicting the most effective treatment plans for individual patients based on their unique genetic makeup and the characteristics of their tumors. This personalized approach can improve treatment efficacy and reduce side effects.</p>
 
+<p>Data: <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data">https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data</a></p>
 
-<b>Dataset:</b>  
-The 
-<a href="https://console.cloud.google.com/marketplace/product/bigquery-public-data/thelook-ecommerce?project=galvanic-portal-404814" class="highlight-link">eCommerce dataset (click here)</a>
-contains information about customers, products, orders, logistics, web events and digital marketing campaigns. The contents of this dataset are synthetic, and are provided to industry practitioners for the purpose of product discovery, testing, and evaluation.
-        
-        <p><b>Improve inventory management with sales forecasting deployed by BigQuery ML and AI Platform Training & Prediction</b>
- In the e-commerce sector, effectively managing inventory is crucial: you need to maintain the right balance, ensuring you have enough stock without overstocking. For large e-commerce companies, this involves managing inventory levels for a vast array of products.<p>
+<p>Description: <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.names">https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.names</a></p>
 
-        <p>To guide inventory decisions, historical sales data is invaluable. By analyzing past customer purchase patterns, you can predict future buying trends, helping to determine optimal inventory levels. Time series forecasting is an essential tool in this process.</p>
+<p>In this problem, I tried multiple machine learning models such as decision tree, logistic regression, k-nearest neighbors, and support vector machine that predict the diagnosis result based on ten real-valued features (mean, standard error, and "worst" or largest of these features). Explore how well different models perform for several different parameter values.</p>
 
-        <p>For data science teams supporting e-commerce inventory management, this entails generating numerous forecasts and managing the infrastructure required for machine learning (ML) model development and deployment. However, by utilizing BigQuery ML in Google Cloud Platform (GCP), you can streamline this process. BigQuery ML allows you to train, evaluate, and deploy ML models directly using SQL statements, bypassing the need for a separate ML infrastructure. This approach can significantly save time and resources in your e-commerce sales forecasting project.</p>
+<p>This solution tried to detect when is overfitting and when is underfitting in order to optimize the best predictive performance. In addition to manually reviewing for hyperparameter optimization, I also applied nested cross-validation with multiple hyperparameters in the grid search aiming at maximizing the usage of different sub-datasets in training data, which may also reduce the possibility of overfitting.</p>
 
+<strong>Confusion Matrix</strong>
 
+<p><img src="https://github.com/trungle14/Breast_Cancer_Prediction/assets/143222481/132bda0e-e76c-49b5-89f5-a1690d584457" alt="Confusion Matrix" width="702"></p>
 
-        <p><b>Set up time series modeling works in BigQuery ML</b> </p>
- 
-        A time series model with BigQuery ML, multiple components are involved, including an Autoregressive integrated moving average (ARIMA) model. For this project, The BigQuery ML model creation pipeline uses the following components:
+<strong>Performance Summary</strong>
 
-        <p>Pre-processing: Automatic cleaning adjustments to the input time series, inspect the most appropriate training data which addresses issues like missing values, duplicated timestamps. 
-          There are multiple levels we can also consider for time series, easily customized function on demand:<br>
-        1. Product category level<br>
-        2. Specific products level<br>
-        3. Store level<</p><br>
+<p><img src="https://github.com/trungle14/Breast_Cancer_Prediction/assets/143222481/cf188bbd-b328-47af-a678-e66381472dcb" alt="Performance Summary" width="875"></p>
 
-        <p>Holiday effects: Time series modeling in BigQuery ML can also account for holiday effects. By default, holiday effects modeling is disabled. But since this data is from the United States, and the data includes a minimum one year of daily data, you can also specify an optional HOLIDAY_REGION. 
-        Seasonal and trend decomposition using the Seasonal and Trend decomposition using Loess (STL) algorithm. Seasonality extrapolation using the double exponential smoothing (ETS) algorithm.</p>
-        <p>Trend modeling using the ARIMA model and the auto.ARIMA algorithm for automatic hyper-parameter tuning. In auto.ARIMA, dozens of candidate models are trained and evaluated in parallel. The best model comes with the lowest Akaike information criterion (AIC).
-        We can use a single SQL statement to train the model to forecast a single product or to forecast multiple products at the same time. For more information, see The CREATE MODEL statement for time series models.</p>
+<p>In general, based on the accuracy and F1 score among 4 models, the decision tree gives us the most optimal predictive model with the performance at 99% on the test dataset, while the other models achieved around 97%. For further enhancement, we may consider tuning hyperparameters in SVM, however, the problem has been almost resolved quite effectively with a significant high accuracy and F1-Score.</p>
 
+<strong>Feature Importance Decision Tree</strong>
 
+<p><img src="https://github.com/trungle14/Breast_Cancer_Prediction/assets/143222481/7422ed4f-7515-4caa-93b1-c93a298f870d" alt="Feature Importance Decision Tree" width="829"></p>
 
-        <b>Deployment quick guide:</b><br>
-        1. Create a new project on GCP platform<br>
-        2. Enable BigQuery, Vertex AI, AI platform, LookerStudio services and create new instance and new notebook with python kernel -- You are ready to run sales forecast<br>
-        3. Prepare training dataset<br>
-        3.1. Upload/Import dataset in Cloud storage and BigQuery, create training dataset under your project or<br>
-        3.2. Enable Streamming by Dataflow for data training preparation<br>
-        4. Develop and train model followed by making prediction<br>
-        5. Export output as predicted sales for further usage as monitoring dashboard<br>
+<strong>Explorations</strong>
 
-        <p>Here is the example how we can integrate forecasted sales into current dashboard:</p>
+<p>In this scenario, a missed diagnosis in breast cancer may cause more serious consequences, a high recall means that there are fewer false negatives. Thus, I would like to use Recall as the main performance matrix, the decision tree performs quite well with the Recall &gt; 95% while Recall of Logistic regression and kNN are approximately 92%.</p>
 
-        <img src="[https://i.ibb.co/RhC6V4R/googletrends-81-1-1.png](https://ibb.co/51NCZF8"><img src="https://i.ibb.co/D1xmdpC/Picture1.png)" alt=""></a>
-          </td>
+<p>In addition, we also look at the feature importance in the Decision tree and coefficient in Logistic regression to see which factors are the most important to the prediction of breast cancer. Apparently, <strong>Worst Radius, Worst Concave Point</strong> appears in the top 5 important factors in the model, which can help medical professionals good implication to predict the patient. Moreover, based on the above decision tree we can easily notice that if <strong>Worst Radius &le; 16.79</strong> and <strong>Worst Concave Point &le; 0.136</strong>, <strong>SE Radius &lt; 1.048</strong> has more probability to be malignant. We are also able to separate 2 groups of factors having different effects on breast cancer based on the coefficient of the logistic model almost factor show a positive relationship the more or higher they are, the more probability of breast cancer malignant, however, it is opposite to the groups of factor of <strong>Compactness</strong> and <strong>Fractal Dimension</strong>.</p>
 
-          <p> <b>Predictions results </b></p>
-          <img width="710" alt="Screenshot 2024-01-20 at 12 22 19" src="https://github.com/trungle14/GoogleCloud_InventoryManagement/assets/143222481/b66e0325-1d5c-4117-95a4-34c13254de3c">
-
-
-          <p>The charts show predicted sales forecast across products pretty stable in Feb and Mar 2023, which fall within 90% confidence level, especially for <b>Hoodies, Fashion Sweatshirts</p></p>
-          The fluctuation happened significantly in <b>Outerwear coats</b> in Jan, this maybe due to seasonal factor regarding the behavior during winter in specific region which is also need to be taken into consideration
-
-
-
-
-        <p><b>Suggestion for further deployment</b></p>
-        1. Adding lagging and rolling features to the model for each training window<br>
-        2. Considering using advanced models like XGBoost or LightGBM<br>
-        3. Adding insightful features like Top 25 Rising queries from <b>Google Trends</b> <td>
-<img src="https://i.ibb.co/RhC6V4R/googletrends-81-1-1.png" alt=""></a>
-<a href="https://console.cloud.google.com/marketplace/product/bigquery-public-datasets/google-search-trends?_ga=2.261190030.2019434361.1656948847-1975246695.1656948843&project=galvanic-portal-404814" class="highlight-link">dataset Google trends on Google BigQuery (here)</a>
-</p>
-            
-
-        <p><b>Documents</b></p>
-
-        <li>
-            <input type="checkbox" checked disabled> 
-            The <a href="https://drive.google.com/file/d/1Roq84Chgowoh7PfVIuHarL1su3gnZMOA/view?usp=drive_link">Presentation & Recording (here)</a>
-        </li>
-        <li>
-            <input type="checkbox" checked disabled> 
-            The open-source <a href="https://lookerstudio.google.com/reporting/ebea5752-963e-4a55-aa45-ebb846519557/page/p_057twy79bd?s=nIzjhrMlO8g">Interactive dashboard (here)</a>
-        </li>
-        <li>
-            <input type="checkbox" checked disabled> 
-            The flyers can be found <a href="https://github.com/trungle14/GoogleCloud_InventoryManagement/blob/main/Flyer_GCP_InventoryManagement.pdf">here</a>
-        </li>
-        <li>
-            <input type="checkbox" checked disabled> 
-            Technical document of the project can be found  <a href="https://github.com/trungle14/GoogleCloud_InventoryManagement/blob/main/BigData_Trends_market_retailforecast.ipynb">here</a>
-        </li>
-
-
-</p>
                     </div>
                   </div>
                 </div>
