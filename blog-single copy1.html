@@ -90,7 +90,7 @@
               <div class="container-main single-main">
                 <div class="col-md-12">
                   <div class="block-main mb-30">
-                    <img src="assets/img/gcp_flyer.png" class="img-responsive" alt="reviews2">
+                    <img src="assets/img/rsz_gcp_flyer.png" class="img-responsive" alt="reviews2">
                     <div class="content-main single-post padDiv">
                       <div class="journal-txt">
                         <h4><a href="#">SO LETS MAKE THE MOST IS BEAUTIFUL</a></h4>
@@ -146,9 +146,9 @@ contains information about customers, products, orders, logistics, web events an
         A time series model with BigQuery ML, multiple components are involved, including an Autoregressive integrated moving average (ARIMA) model. For this project, The BigQuery ML model creation pipeline uses the following components:
 
         <p>Pre-processing: Automatic cleaning adjustments to the input time series, inspect the most appropriate training data which addresses issues like missing values, duplicated timestamps. There are multiple levels we can also consider for time series, easily customized function on demand:
-        1. Product category level
-        2. Specific products level
-        3. Store level<</p>
+        1. Product category level<br>
+        2. Specific products level<br>
+        3. Store level<</p><br>
 
         <p>Holiday effects: Time series modeling in BigQuery ML can also account for holiday effects. By default, holiday effects modeling is disabled. But since this data is from the United States, and the data includes a minimum one year of daily data, you can also specify an optional HOLIDAY_REGION. 
         Seasonal and trend decomposition using the Seasonal and Trend decomposition using Loess (STL) algorithm. Seasonality extrapolation using the double exponential smoothing (ETS) algorithm.</p>
@@ -157,14 +157,14 @@ contains information about customers, products, orders, logistics, web events an
 
 
 
-        <b>Deployment quick guide:</b>
-        1. Create a new project on GCP platform
-        2. Enable BigQuery, Vertex AI, AI platform, LookerStudio services and create new instance and new notebook with python kernel -- You are ready to run sales forecast
-        3. Prepare training dataset
-        3.1. Upload/Import dataset in Cloud storage and BigQuery, create training dataset under your project or
-        3.2. Enable Streamming by Dataflow for data training preparation
-        4. Develop and train model followed by making prediction
-        5. Export output as predicted sales for further usage as monitoring dashboard
+        <b>Deployment quick guide:</b><br>
+        1. Create a new project on GCP platform<br>
+        2. Enable BigQuery, Vertex AI, AI platform, LookerStudio services and create new instance and new notebook with python kernel -- You are ready to run sales forecast<br>
+        3. Prepare training dataset<br>
+        3.1. Upload/Import dataset in Cloud storage and BigQuery, create training dataset under your project or<br>
+        3.2. Enable Streamming by Dataflow for data training preparation<br>
+        4. Develop and train model followed by making prediction<br>
+        5. Export output as predicted sales for further usage as monitoring dashboard<br>
 
         <p>Here is the example how we can integrate forecasted sales into current dashboard:</p>
 
@@ -214,43 +214,6 @@ contains information about customers, products, orders, logistics, web events an
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12">
-                  <div class="comments text-left padDiv mb-30">
-                    <div class="entry-comments">
-                      <h6 class="mb-30">4 comments</h6>
-                      <ul class="entry-comments-list list-unstyled">
-                        <li>
-                          <div class="entry-comments-item">
-                            <img src="assets/img/avatar.jpg" class="entry-comments-avatar" alt="">
-                            <div class="entry-comments-body">
-                              <span class="entry-comments-author">Sommer Christian</span>
-                              <span><a href="#">fev 14, 2018 at 12:48 pm</a></span>
-                              <p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam justo, ullamcorper tincidunt pellentesque in, condimentum ut enim. Aenean at pharetra diam, quis vulputate urna. </p>
-                              <a class="rep" href="#">Reply</a>
-                            </div>
-                          </div>
-                          <ul class="entry-comments-reply list-unstyled">
-                            <li>
-                              <div class="entry-comments-item">
-                                <img src="assets/img/avatar.jpg" class="entry-comments-avatar" alt="">
-                                <div class="entry-comments-body">
-                                  <span class="entry-comments-author">Sara Smith</span>
-                                  <span><a href="#">fev 14, 2018 at 12:51 pm</a></span>
-                                  <p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam justo, ullamcorper tincidunt pellentesque in, condimentum ut enim. Aenean at pharetra diam, quis vulputate urna.</p>
-                                  <a class="rep" href="#">Reply</a>
-                                </div>
-                              </div>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <div class="entry-comments-item">
-                            <img src="assets/img/avatar.jpg" class="entry-comments-avatar" alt="">
-                            <div class="entry-comments-body">
-                              <span class="entry-comments-author">Andrew Lupkin</span>
-                              <span><a href="#">fev 14, 2018 at 12:55 pm</a></span>
-                              <p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam justo, ullamcorper tincidunt pellentesque in, condimentum ut enim. Aenean at pharetra diam, quis vulputate urna. </p>
-                              <a class="rep" href="#">Reply</a>
                             </div>
                           </div>
                         </li>
