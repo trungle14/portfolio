@@ -97,7 +97,7 @@
                            This is done by taking a sample of shell, staining it and counting the number of rings under the microscope.This process is tedious and time-consuming.
                          </blockquote>
 
-                         <h4><a href="#">How machine learning can solve this problem?/a></h4><br>
+                         <h4>href="#">How machine learning can solve this problem?</h4><br>
                        <blockquote> As we know, Age is a number and we have data that contains the physical measurements of abalones and their ages. 
                          We can build a machine learning model that can predict the age of abalone given its physical measurements like weight, height, etc.
                               </blockquote>
@@ -132,10 +132,7 @@
 
 <h4> Machine Learning Model - Cloud Computing and AWS</h4> <br>
 
-![](https://img.shields.io/badge/<AWS>-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=#FF6E54)
-![](https://img.shields.io/badge/<Sagemaker>-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=#FF6E54)
-![](https://img.shields.io/badge/<XGBOOST>-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=#FF6E54)
-![](https://img.shields.io/badge/<Machine_Learning_Pipeline>-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=#FF6E54)
+
 
 <!-- AWS Badge -->
     <img src="https://img.shields.io/badge/AWS-informational?style=flat&logo=amazon-aws&logoColor=white&color=FF6E54" alt="AWS Badge">
@@ -143,37 +140,39 @@
 
 ![](https://img.shields.io/badge/DATASET-8A2BE2)
 <h4> The abalone dataset has been used to predict the age of abalone from physical measurements. The age of abalone is determined by cutting the shell through the cone, staining it, and counting the number of rings through a microscope - - a boring and time-consuming task. Other measurements, which are easier to obtain, are used to predict the age. Further information, such as weather patterns and location(hence food availability) may be required to solve the problem.
- More information about the dataset is at: https:// archive.ics.uci.edu/ml/datasets/abalone </h4>
+ <br>More information about the dataset is at: https:// archive.ics.uci.edu/ml/datasets/abalone </h4><br>
 
 ![](https://img.shields.io/badge/COPY_OF_SAMPLE_DATAFILE_ON_AWS_S3-8A2BE3)
-<h4> A copy of the data is available through sagemaker sample data files at s3: // sagemaker-sample-files/datasets/tabular/uci_abalone/abalone.csv </h4>
+<h4> A copy of the data is available through sagemaker sample data files at s3: // sagemaker-sample-files/datasets/tabular/uci_abalone/abalone.csv </h4><br>
 
 <b>Data Collection</b>
-Collect the raw data from various sources (e.g., databases, CSV files on S3).
+Collect the raw data from various sources (e.g., databases, CSV files on S3).<br>
 
-<b>Data Preparation</b>
+<b>Data Preparation</b><br>
 
-Preprocess the data (cleaning, normalization, feature engineering).
-Split the data into training, validation, and test sets.
-Select a suitable machine learning algorithm for the problem at hand.
-Configure SageMaker Training Job
+Preprocess the data (cleaning, normalization, feature engineering).<br>
+Split the data into training, validation, and test sets.<br>
+Select a suitable machine learning algorithm for the problem at hand.<br>
+Configure SageMaker Training Job<br>
 
-Set up the training job in SageMaker, specifying:
-The algorithm or bring your own model
-Resource requirements (instance type, count)
-Input and output data locations (usually S3 paths)
-Hyperparameters
+<br>Set up the training job in SageMaker, specifying:
+<br>The algorithm or bring your own model
+<br>Resource requirements (instance type, count)
+<br>Input and output data locations (usually S3 paths)
+<br>Hyperparameters
 
-<b>Train the Model</b>
+<br><b>Train the Model</b>
 
-Execute the training job in SageMaker.
-Monitor the training process through SageMaker console or CloudWatch.
+<br>Execute the training job in SageMaker.
+<br>Monitor the training process through SageMaker console or CloudWatch.
 
 <b>Model Evaluation</b>
-
+                      
+<br>
+<br>
 Evaluate the trained model's performance using the test dataset.
 If the performance is unsatisfactory, return to step 3, 4, or 5 as needed.
-Model Deployment
+Model Deployment<br><br>
 
 Create a SageMaker model by specifying the S3 location of the trained model artifacts and the Docker container for inference.
 Deploy the model to a SageMaker endpoint for real-time or batch predictions.
@@ -185,7 +184,7 @@ Update the model as necessary by retraining with new data or adjusting hyperpara
 
 The process concludes when the model is successfully deployed and operating as expected.
 
-<b>Importance Notice</b>
+<b>Importance Notice</b><br><br>
 
 Iterative Process: Model development in SageMaker is iterative. Based on model evaluation results, you may need to adjust preprocessing steps, reselect algorithms, or retune hyperparameters.
 
@@ -193,7 +192,7 @@ Automation: Many steps can be automated using SageMaker's built-in features, suc
 
 Integration: SageMaker integrates with other AWS services, like S3 for data storage, CloudWatch for monitoring, and IAM for access control, providing a comprehensive and secure ML lifecycle environment.
 
-![](https://img.shields.io/badge/FLOWCHART-8A3BE3)
+![](https://img.shields.io/badge/FLOWCHART-8A3BE3)<br><br>
 
 <img width="800" src="assets/img/rsz_aws_ml.png">
 
