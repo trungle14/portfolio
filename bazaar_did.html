@@ -138,7 +138,7 @@ h1>Business Overview of Bazaar.com</h1>
     <div class="code-snippet">
         <!-- R code for First Difference Estimate -->
     
- <h4>R Code Snippet is highlight</h4> in  <code>this format </code><br>
+ <h4>R Code Snippet is highlight</h4> in  <code>(this format) </code><br>
     <code>
   setwd ("/Users/Trung/Downloads") <br>
 data = read.csv('did_sponsored_ads.csv')<br>
@@ -162,8 +162,9 @@ group (as there was impact of outage here) and Bing , yahoo and ask would serve 
 
 <h2> Consider a First Difference Estimate</h2>
 
-In our analytical approach, we focus on determining whether there's a significant change in total web traffic following the ad outage compared to the period before the outage. This comparison of pre- and post-outage data is crucial for gaining insights into the causal impact of the outage on website traffic. Given that the data is heavily skewed — with 75% of the data showing fewer than 10,000 clicks — we employ a log transformation. This transformation is a standard technique to normalize data, making it more suitable for model building. By using a log transform, we can mitigate the effects of the skewness in the data, leading to more reliable and interpretable analytical results
-
+In our analytical approach, we focus on determining whether there's a significant change in total web traffic following the ad outage compared to the period before the outage. 
+                      This comparison of pre- and post-outage data is crucial for gaining insights into the causal impact of the outage on website traffic. Given that the data is heavily skewed — with 75% of the data showing fewer than 10,000 clicks — we employ a log transformation. This transformation is a standard technique to normalize data, making it more suitable for model building. By using a log transform, we can mitigate the effects of the skewness in the data, leading to more reliable and interpretable analytical results
+<br>
     <code>
 # Try a simple pre-post estimator
 # Simple pre-post estimator
@@ -204,14 +205,14 @@ ggplot(data %>% filter(platform == 'goog'), aes(x=week, y= total_traffic, color 
 
 The graph shows no parallel trends, but rather an increasing divergence until week 9, followed by a decrease in Google's click-through numbers compared to other platforms, indicating convergence. Therefore, while DiD analysis remains valuable, it requires cautious application and careful interpretation of the results.
 
-
+<br>
     <code>
 model_did <- lm(total_traffic ~ treatment + factor(week) + treatment * factor(week),data=data)
 summary(model_did)
     </code>
 
 Although our initial assumption was not confirmed, we proceeded with a Difference in Difference (DiD) regression between the treatment and control groups. This approach aims to estimate the actual causal impact of the sponsored ads. The key independent variables in the DiD regression are Treatment, After, and the Interaction between Treatment and After.
-
+<br>
     <code>
 did <- lm(total_traffic ~ treatment + after + treatment * after, data=data)
 summary(did)
