@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Folio Bootstrap Template - Blog Single</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/san diego1.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i,900,900i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Folio
+  * Updated: Jan 29 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/folio-bootstrap-portfolio-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo"><img src="assets/img/TRUNGLOGO.png" alt="" class="img-fluid"></a>
+      <!-- Uncomment below if you prefer to use an text logo -->
+      <!-- <h1 class="logo"><a href="index.html">Folio</a></h1> -->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="index.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link  scrollto" href="#portfolio">Portfolio</a></li>
+ 
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Blog Single ======= -->
+    <div class="main-content paddsection">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="row">
+              <div class="container-main single-main">
+                <div class="col-md-12">
+                  <div class="block-main mb-30">
+                    <img src="assets/img/portfolio/rsz_1did_trung.png" class="img-responsive" alt="reviews2">
+                    <div class="content-main single-post padDiv">
+                      <div class="journal-txt">
+                        <h4><a href="#">Let's navigate impact with Difference-in-Differences in business context</a></h4>
+                      </div>
+                      <div class="post-meta">
+                        <ul class="list-unstyled mb-0">
+                          <li class="author">by:<a href="#">Trung Le</a></li>
+                          <li class="date">date:<a href="#">October, 2023</a></li>
+                          <li class="commont"><i class="ion-ios-heart-outline"></i><a href="#"></a></li>
+                        </ul>
+                      </div>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document with GitHub Logo</title>
+    <!-- Include FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+</head>
+<body>
+    <blockquote>
+        Visit Github repository for full document of the project 
+        <!-- Correct FontAwesome icon class -->
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/trungle14/Causal_Inference_DiD_Digital_MKT" class="highlight-link">here</a>.
+    </blockquote>
+</body>
+</html>
+
+<h4>Business Overview of Bazaar.com</h4>
+    <p>Bazaar.com, a prominent online retailer in the United States, has established a significant presence in digital advertising, focusing on both display and search engine advertising, particularly in running paid search ads across platforms like Google and Bing. The company classifies its paid advertisements into two main categories: branded and non-branded keywords.</p>
+
+    <h2>Introduction to the Difference in Difference (DiD) Approach</h2>
+   <blockquote><p> Before diving into Difference in Difference, 
+     let's start with small example, since I am a football lover, my question might be determining whether Lionel Messi's signing with FC Miami led to a rise in Florida's tourism, 
+     a trend that surpasses just a general increase in interest in Miami. We'll use this scenario to understand the impact of a significant sports event on tourism.
+     The DiD method is commonly used for assessing the impacts of large-scale policy changes or interventions by comparing the before and after effects of the intervention.</p>
+   </blockquote>
+
+<img width="630" alt="Screenshot 2024-01-25 at 23 12 03" src="assets/img/did.png">
+<br>
+                      <p>
+   The Difference-in-Differences (DiD) approach is a statistical technique used to estimate the effect of a specific intervention or treatment by comparing the changes in 
+                      outcomes over time between a group that is exposed to the intervention (treatment group) and a group that is not (control group). By observing how the difference in
+                      outcomes between these two groups changes before and after the intervention, DiD isolates the impact of the intervention from other confounding factors. 
+                      This method is widely used in economics, social sciences, and policy analysis to evaluate the effects of policy changes, programs, or treatments.
+</p>
+
+
+
+
+
+                  
+    <h2>Now get back to our case, challenges with Bob’s ROI analysis</h2>
+                      
+    <p>Bob, from Bazaar's marketing analytics team, calculated a 320% ROI from sponsored ads, raising concerns about the potential overestimation of the ads' effectiveness, as customers searching for 'Bazaar' might already be inclined to visit the website, thereby questioning the actual impact of branded keyword ads.</p>
+
+    <h2>Defining Treatment and Control Groups</h2>
+    <p>The experiment treats the stoppage of sponsored ads as a causal test, with Google serving as the treatment group (impacted by the outage) and Bing, Yahoo, and Ask as control groups (unaffected by the outage).</p>
+
+    <h2>First Difference Estimate</h2>
+    <p>The initial analysis focuses on the change in total web traffic following the ad outage. The log transformation of data addresses skewness, facilitating a more accurate model building process.</p>
+    
+    <div class="code-snippet">
+        <!-- R code for First Difference Estimate -->
+    
+ <h4>R Code Snippet is highlight in </h4> <code>(this format) </code><br>
+
+<br>
+      
+    <code>
+  setwd ("/Users/Trung/Downloads") <br>
+data = read.csv('did_sponsored_ads.csv')<br>
+treatment_week = c(10,11,12)<br>
+data &lt;- data %&gt;% mutate(treatment = ifelse(platform == 'goog',1,0),<br>
+                       after = ifelse(week %in% treatment_week,1,0),<br>
+                       total_traffic = avg_spons + avg_org)<br>
+
+google_Ad = data %&gt;% filter (platform=="goog")<br>
+#Plotting the histogram for total clicks on Google<br>
+hist(google_Ad$total_traffic)
+        </code>
+    </div>
+
+                       
+  
+<h2>Define the Treatment and Control</h2><br>
+   
+As per this experiment, stoppage of sponsored ads serves as a way to test the causality, hence in our analysis (say in difference in differences we would be testing difference of change in Google click through ads vs other platforms ) Google would serve as treatment
+group (as there was impact of outage here) and Bing , yahoo and ask would serve as control groups (as there was no impact of outage) 
+
+<h2> Consider a First Difference Estimate</h2>
+
+In our analytical approach, we focus on determining whether there's a significant change in total web traffic following the ad outage compared to the period before the outage. 
+                      This comparison of pre- and post-outage data is crucial for gaining insights into the causal impact of the outage on website traffic. Given that the data is heavily skewed — with 75% of the data showing fewer than 10,000 clicks — we employ a log transformation. This transformation is a standard technique to normalize data, making it more suitable for model building. By using a log transform, we can mitigate the effects of the skewness in the data, leading to more reliable and interpretable analytical results
+<br>
+    <code>
+# Try a simple pre-post estimator
+# Simple pre-post estimator
+google_data<- data %>% filter(platform == "goog")
+model <- lm(log(total_traffic) ~ after, data = google_data)
+summary(model)
+    </code>
+
+<b>Interpretation:</b>
+The p-value of 0.998 suggests no significant insights from our test. While there appears to be a 13.06% increase in web traffic from Google, the high p-value indicates this is not statistically significant. Our current analysis, based on pre-post comparison within the treatment group, assumes constant market conditions, which might not hold true in scenarios like holiday seasons. To overcome these limitations, we propose using the Difference in Difference (DiD) method. DiD considers both treatment and control groups, offering a more reliable approach by accounting for external variations.
+
+
+# Calculate the Difference-in-Differences
+
+Prior to conducting a Difference-in-Differences analysis, it's crucial to verify the existence of parallel trends beforehand. This step ensures that the differences we're comparing are, in fact, meaningful. If there's already a decreasing trend between the differences, it would hinder our ability to derive accurate insights.   
+
+<b>Visualization of parallel trend</b><br>
+    <code>
+temp1 = data %>%  filter(platform %in%  c('bing')) %>% select(week, total_traffic)
+temp2 = data %>%  filter(platform %in%  c('yahoo')) %>% select(week, total_traffic)
+temp3 = data %>%  filter(platform %in%  c('ask')) %>% select(week, total_traffic)
+
+ggplot(data %>% filter(platform == 'goog'), aes(x=week, y= total_traffic, color = 'Google')) +
+  geom_line() +
+  geom_line(aes(x=week, y= total_traffic, color = 'Bing'), data = temp1) +<br>
+  geom_line(aes(x=week, y= total_traffic, color = 'Yahoo'), data = temp2) +<br>
+  geom_line(aes(x=week, y= total_traffic, color = 'Ask'), data = temp3) +<br>
+  geom_vline(xintercept = 9,color='red') +<br>
+  scale_y_continuous(sec.axis = sec_axis(~./6)) +<br>
+  scale_x_continuous(breaks = seq(1, 12, by = 1)) +<br>
+  labs(y = "Total Traffic", x = "Week") +<br>
+  theme_bw() +<br>
+  theme(legend.title = element_blank())
+    </code><br>
+
+<img width="630" alt="Screenshot 2024-01-25 at 23 12 03" src="https://github.com/trungle14/trungle14test/assets/143222481/696dd200-67a6-47ea-a569-d0cf7b1e0bfa">
+
+
+The graph shows no parallel trends, but rather an increasing divergence until week 9, followed by a decrease in Google's click-through numbers compared to other platforms, indicating convergence. Therefore, while DiD analysis remains valuable, it requires cautious application and careful interpretation of the results.
+
+<br>
+    <code>
+model_did <- lm(total_traffic ~ treatment + factor(week) + treatment * factor(week),data=data)
+summary(model_did)
+    </code>
+
+Although our initial assumption was not confirmed, we proceeded with a Difference in Difference (DiD) regression between the treatment and control groups. This approach aims to estimate the actual causal impact of the sponsored ads. The key independent variables in the DiD regression are Treatment, After, and the Interaction between Treatment and After.
+<br>
+    <code>
+did <- lm(total_traffic ~ treatment + after + treatment * after, data=data)
+summary(did)
+    </code>
+
+By stopping sponsored ads on Google, Bazaar experiences an average loss of 9,910 clicks per week. This finding, derived from comparing the new treatment effect with the control group, highlights the causal influence of sponsored ads. This method is superior to the pre-post estimate because it allows us to analyze the behaviors of both control and treatment groups in a single model, adjusting for time-related variations and minimizing the impact of seasonality
+
+
+
+                      
+           
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="cmt padDiv">
+                    <form id="comment-form" method="post" action="" role="form">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <input id="form_name" type="text" name="name" class="form-control" placeholder="Name *" required="required">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <input id="form_email" type="email" name="email" class="form-control" placeholder="email *" required="required">
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <input id="form_name" type="text" name="website" class="form-control" placeholder="Website">
+                          </div>
+                        </div>
+                        <div class="col-lg-12">
+                          <div class="form-group">
+                            <textarea id="form_message" name="message" class="form-control" placeholder="Message *" style="height: 200px;" required="required"></textarea>
+                          </div>
+                        </div>
+                        <div class="col-lg-12">
+                          <input type="submit" class="btn btn-defeault btn-send" value="Send message">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Blog Single -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <div id="footer" class="text-center">
+    <div class="container">
+      <div class="socials-media text-center">
+
+        <ul class="list-unstyled">
+          <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+          <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+          <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+          <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+        </ul>
+
+      </div>
+
+      <p>&copy; Copyrights Folio. All rights reserved.</p>
+
+      <div class="credits">
+        <!--
+        All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Folio
+      -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+
+    </div>
+  </div><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
